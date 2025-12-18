@@ -12,7 +12,8 @@ export const CLASSES: Record<string, CharacterClass> = {
             hp: 150,
             attack: 18,
             defense: 15,
-            critChance: 5
+            critChance: 5,
+            speed: 80
         },
         skills: [
             ALL_SKILLS.enforcer.tree1.skills[0],
@@ -30,7 +31,8 @@ export const CLASSES: Record<string, CharacterClass> = {
             hp: 90,
             attack: 22,
             defense: 8,
-            critChance: 12
+            critChance: 12,
+            speed: 110
         },
         skills: [
             ALL_SKILLS.netrunner.tree1.skills[0],
@@ -48,7 +50,8 @@ export const CLASSES: Record<string, CharacterClass> = {
             hp: 100,
             attack: 12,
             defense: 10,
-            critChance: 8
+            critChance: 8,
+            speed: 100
         },
         skills: [
             ALL_SKILLS.medic.tree1.skills[0],
@@ -66,7 +69,8 @@ export const CLASSES: Record<string, CharacterClass> = {
             hp: 85,
             attack: 28,
             defense: 6,
-            critChance: 25
+            critChance: 25,
+            speed: 130
         },
         skills: [
             ALL_SKILLS.assassin.tree1.skills[0],
@@ -85,7 +89,8 @@ export const CLASSES: Record<string, CharacterClass> = {
             hp: 100,
             attack: 10,
             defense: 10,
-            critChance: 5
+            critChance: 5,
+            speed: 100
         },
         skills: [] // Empty skills for now to prevent skill lookup crashes
     }

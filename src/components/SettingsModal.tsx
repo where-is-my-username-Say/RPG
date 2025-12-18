@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Panel, Button } from './ui';
 import { useGameStore } from '../store/gameStore';
-import { supabase } from '../lib/supabase';
+// import { supabase } from '../lib/supabase'; // Removed unused import
 
 interface SettingsModalProps {
     onClose: () => void;
 }
 
 export function SettingsModal({ onClose }: SettingsModalProps) {
-    const { player, setPlayer, resetAccount, deleteAccount } = useGameStore();
+    const { resetAccount, deleteAccount } = useGameStore();
     const [volume, setVolume] = useState(80);
     const [sfx, setSfx] = useState(100);
     const [graphics, setGraphics] = useState('HIGH');

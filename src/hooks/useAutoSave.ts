@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { useGameStore } from '../store/gameStore';
-import { supabase } from '../lib/supabase';
 
 export function useAutoSave() {
     const { player } = useGameStore();

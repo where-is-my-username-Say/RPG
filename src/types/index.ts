@@ -65,6 +65,7 @@ export interface CharacterClass {
         attack: number;
         defense: number;
         critChance: number;
+        speed: number;
     };
     skills: Skill[];
 }

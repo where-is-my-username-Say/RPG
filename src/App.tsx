@@ -56,7 +56,7 @@ export default function App() {
     }
 
     if (!session) {
-        return <AuthView onSuccess={(userId) => loadFromSupabase(userId)} />;
+        return <AuthView onSuccess={(userId: string) => { loadFromSupabase(userId); }} />;
     }
 
     // Logged in but no player profile loaded (Error state)

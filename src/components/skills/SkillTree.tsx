@@ -4,7 +4,7 @@ import { ALL_SKILLS } from '../../data/skills';
 import { SkillNode } from './SkillNode';
 import { SkillTooltip } from './SkillTooltip';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '../ui'; // Assuming Button is exported from ui
+// import { Button } from '../ui'; // Removed unused import
 
 export const SkillTree: React.FC = () => {
     const { player, allocateSkillPoint, resetSkillTree } = useGameStore();
@@ -21,7 +21,7 @@ export const SkillTree: React.FC = () => {
 
     // Group skills by tier for layout
     const skillsByTier: Record<number, any[]> = {};
-    currentTreeDefinition.skills.forEach(skill => {
+    currentTreeDefinition.skills.forEach((skill: any) => {
         if (!skillsByTier[skill.tier]) skillsByTier[skill.tier] = [];
         skillsByTier[skill.tier].push(skill);
     });
@@ -86,8 +86,8 @@ export const SkillTree: React.FC = () => {
                         key={treeKey}
                         onClick={() => setActiveTree(treeKey)}
                         className={`flex-1 py-3 text-sm font-bold tracking-wider transition-colors relative ${activeTree === treeKey
-                                ? 'text-cyber-cyan bg-cyber-cyan/10'
-                                : 'text-gray-500 hover:text-gray-300'
+                            ? 'text-cyber-cyan bg-cyber-cyan/10'
+                            : 'text-gray-500 hover:text-gray-300'
                             }`}
                     >
                         {classSkills[treeKey].icon} {classSkills[treeKey].name}
@@ -147,7 +147,7 @@ export const SkillTree: React.FC = () => {
                 {hoveredSkill && (
                     (() => {
                         // Find skill data for tooltip
-                        const skill = currentTreeDefinition.skills.find(s => s.id === hoveredSkill.id);
+                        const skill = currentTreeDefinition.skills.find((s: any) => s.id === hoveredSkill.id);
                         if (!skill) return null;
                         const rank = playerSkills[skill.id] || 0;
 

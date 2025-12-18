@@ -565,5 +565,10 @@ export const ALL_SKILLS = {
     enforcer: ENFORCER_SKILLS,
     netrunner: NETRUNNER_SKILLS,
     medic: MEDIC_SKILLS,
-    assassin: ASSASSIN_SKILLS
+    assassin: ASSASSIN_SKILLS,
+    scavenger: {
+        tree1: { name: 'Survival', icon: '🎒', description: 'Basic survival skills', skills: [] },
+        tree2: { name: 'Scavenging', icon: '🔍', description: 'Finding resources', skills: [] },
+        tree3: { name: 'Jury-Rigging', icon: '🔧', description: 'Basic repairs', skills: [] }
+    }
 };

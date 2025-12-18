@@ -392,12 +392,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
         const classSkills = ALL_SKILLS[player.classId as keyof typeof ALL_SKILLS];
         if (!classSkills) return;
 
-        let skillDef: Skill | null = null;
-        Object.values(classSkills).forEach((tree: any) => {
-            const found = tree.skills.find((s: Skill) => s.id === skillId);
-            if (found) skillDef = found;
-        });
-
+        const skillDef = Object.values(classSkills).flatMap((tree: any) => tree.skills).find((s: Skill) => s.id === skillId);
         if (!skillDef) return;
 
         const currentSkills = player.skills || {};
@@ -460,11 +455,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
             const rankNum = rank as number;
             if (rankNum <= 0) return;
 
-            let skillDef: Skill | null = null;
-            Object.values(classSkills).forEach((tree: any) => {
-                const found = tree.skills.find((s: Skill) => s.id === skillId);
-                if (found) skillDef = found;
-            });
+            const skillDef = Object.values(classSkills).flatMap((tree: any) => tree.skills).find((s: Skill) => s.id === skillId);
 
             if (skillDef && skillDef.type === 'passive') {
                 skillDef.effects.forEach((effect: any) => {

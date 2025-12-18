@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { DynamicBackground } from './cyber/DynamicBackground';
 
 interface AuthViewProps {
-    onSuccess: () => void;
+    onSuccess: (userId: string) => void;
 }
 
 export function AuthView({ onSuccess }: AuthViewProps) {
@@ -106,7 +106,12 @@ export function AuthView({ onSuccess }: AuthViewProps) {
             }
 
             clearPersistedState();
-            onSuccess();
+
+            // Get current session to pass user ID
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session?.user) {
+                onSuccess(session.user.id);
+            }
         } catch (err: any) {
             setError(err.message);
         } finally {
